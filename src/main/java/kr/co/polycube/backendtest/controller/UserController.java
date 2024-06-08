@@ -27,12 +27,12 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public Optional<User> getUser(@PathVariable Long id) {
+    public Optional<User> getUser(@PathVariable(name = "id") Long id) {
         return userService.getUser(id);
     }
 
     @PutMapping("/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User user) {
+    public User updateUser(@PathVariable(name = "id") Long id, @RequestBody User user) {
         return userService.updateUser(id, user.getName());
     }
 }
